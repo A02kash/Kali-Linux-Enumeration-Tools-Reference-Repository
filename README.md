@@ -1,13 +1,26 @@
-# Kali-Linux-Enumeration-Tools-Reference-Repository
-Your go-to resource for Kali Linux's top enumeration tools. Explore commands and techniques for efficient network reconnaissance, information gathering, and vulnerability assessment. Enhance your security prowess with this comprehensive guide
-
-
 ### Directory busting
 
 - gobuster
 - dirb
 - msfconsole
 - dirbuster
+
+### Password enumeration
+
+- hydra
+    - for MySQL user ‘root’ we can also provide a username list
+        
+        ```jsx
+        hydra 192.140.141.3 -l root /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt  mysql
+        ```
+        
+- metasploid(msfconsole)
+    - for brute forcing a MySQL user password for eg ‘root’
+        
+        ```jsx
+        use auxiliary/scanner/mysql/mysql_login
+        ```
+        
 
 ### Download the source code
 
@@ -77,8 +90,12 @@ Your go-to resource for Kali Linux's top enumeration tools. Explore commands and
         ```
         
 - *msfconsole*
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f47dde30-36bf-4128-a5a2-df9580b08968/0dcde4d3-1daf-4413-9ff0-4949c7123ca3/Untitled.png)
+    - for brute forcing a MySQL user password for eg ‘root’
+        
+        ```jsx
+        use auxiliary/scanner/mysql/mysql_login
+        ```
+        
 
 ## Basic my SQL commads
 
