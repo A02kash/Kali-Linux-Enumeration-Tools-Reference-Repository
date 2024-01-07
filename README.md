@@ -11,7 +11,7 @@
     - for MySQL user ‘root’ we can also provide a username list
         
         ```jsx
-        hydra 192.140.141.3 -l root /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt  mysql
+        hydra <ip address> -l root /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt  mysql
         ```
         
 - metasploid(msfconsole)
@@ -50,43 +50,43 @@
     - MySQL user enumeration
         
         ```jsx
-        nmap 192.99.192.3 -sV --script mysql-enum
+        nmap <ip address> -sV --script mysql-enum
         ```
         
     - what user have an empty password(or anonymouslogin)
         
         ```jsx
-        nmap 192.99.192.3 -p 3306 -sV --script mysql-empty-password
+        nmap <ip address> -p 3306 -sV --script mysql-empty-password
         ```
         
     - finding user through ‘root’
         
         ```jsx
-        nmap 192.99.192.3 -p 3306 -sV --script mysql-users --script-args="mysqluser='root',mysqlpass=""”
+        nmap <ip address> -p 3306 -sV --script mysql-users --script-args="mysqluser='root',mysqlpass=""”
         ```
         
     - finding databases on the SQL server through ‘root’
         
         ```jsx
-        nmap 192.99.192.3 -p 3306 -sV --script mysql-databases --script-args="mysqluser='root',mysqlpass=""”
+        nmap <ip address> -p 3306 -sV --script mysql-databases --script-args="mysqluser='root',mysqlpass=""”
         ```
         
     - finding the data dir(or other variables) through ‘root’
         
         ```jsx
-        nmap 192.99.192.3 -p 3306 -sV --script mysql-variables --script-args="mysqluser='root',mysqlpass=""”
+        nmap <ip address> -p 3306 -sV --script mysql-variables --script-args="mysqluser='root',mysqlpass=""”
         ```
         
     - Check whether File Privileges can be granted to non admin users using mysql_audit nmap script.
         
         ```jsx
-        nmap 192.99.192.3 -p 3306 -sV --script mysql-audit --script-args="mysql-audit.username='root', mysql-audit.password='',mysql-audit.filename='/usr/share/nmap/nselib/data/mysql-cis.audit'”
+        nmap <ip address> -p 3306 -sV --script mysql-audit --script-args="mysql-audit.username='root', mysql-audit.password='',mysql-audit.filename='/usr/share/nmap/nselib/data/mysql-cis.audit'”
         ```
         
     - running our query on ‘root’
         
         ```jsx
-        nmap 192.99.192.3 -p 3306 -sV --script mysql-query --script-args="query='Select * from books.authors;',username='root',password=''”
+        nmap <ip address> -p 3306 -sV --script mysql-query --script-args="query='Select * from books.authors;',username='root',password=''”
         ```
         
 - *msfconsole*
