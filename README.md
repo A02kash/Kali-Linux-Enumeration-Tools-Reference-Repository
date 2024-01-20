@@ -1,4 +1,12 @@
-# TOOLS FOR EJPT
+## Port Information:
+
+| SERVICE               | PORT NUMBER |
+|-----------------------|-------------|
+| http, https           | 80, 443     |
+| SMB                   | 445(TCP)    |
+| SMB on top of NETBIOS | 139         |
+|                       |             |
+
 
 ### Directory busting
 
@@ -7,6 +15,10 @@
 - msfconsole
 - dirbuster
 
+### Payload generation
+
+- msfvenom
+
 ### Password enumeration
 
 - hydra
@@ -14,6 +26,12 @@
         
         ```jsx
         hydra 192.140.141.3 -l root /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt  mysql
+        ```
+        
+    - for WebDAV enumeration
+        
+        ```jsx
+        hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/common_passwords.txt 10.5.19.162 http-get /webdav/
         ```
         
 - metasploid(msfconsole)
@@ -36,8 +54,6 @@
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f47dde30-36bf-4128-a5a2-df9580b08968/48ebad61-d33a-4908-83d9-1422799200d2/Untitled.png)
 
 - lynx
-
- 
 
 ## Ms-SQL(Microsoft based SQL) enumeration
 
@@ -212,4 +228,35 @@
     
     ```jsx
     Select load_file("/etc/shadow");
+    ```
+    
+    ---
+    
+
+## WebDAV Exploitation
+
+- using nmap
+    - WebDAV directory enumeration
+        
+        ```jsx
+        nmap 10.5.19.162 -p 80 --script http-enum
+        ```
+        
+- using Metasploit
+
+## Davtest → used to check what files can be uploaded on the WebDAV server
+
+- davtest
+    
+    ```jsx
+    davtest -auth bob:password_123321 -url http://10.5.19.162/webdav/
+    ```
+    
+
+## Cadaver → connecting to the WebDAV server.
+
+- cadaver
+    
+    ```jsx
+    cadaver http://10.5.19.162/webdav/
     ```
