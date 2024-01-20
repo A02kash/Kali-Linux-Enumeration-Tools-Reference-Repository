@@ -5,8 +5,6 @@
 | http, https           | 80, 443     |
 | SMB                   | 445(TCP)    |
 | SMB on top of NETBIOS | 139         |
-|                       |             |
-
 
 ### Directory busting
 
