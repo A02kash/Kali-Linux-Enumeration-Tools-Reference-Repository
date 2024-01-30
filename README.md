@@ -1,3 +1,5 @@
+# TOOLS FOR EJPT
+
 ## Port Information:
 
 | SERVICE               | PORT NUMBER |
@@ -5,6 +7,34 @@
 | http, https           | 80, 443     |
 | SMB                   | 445(TCP)    |
 | SMB on top of NETBIOS | 139         |
+| RDP                   | 3389        |
+
+### Check what a command does
+
+- `man`
+    
+    ```jsx
+    man nmap
+    ```
+    
+- `whatis`
+    
+    ```jsx
+    whatis nmap
+    ```
+    
+- `apropos` - if you want to search a string in the description of all the commands
+    - eg - I want to search for a command to `change password`
+    
+    ```jsx
+    apropos change password
+    ```
+    
+    - if we want to filter it more
+    
+    ```jsx
+    apropos -a <string>
+    ```
 
 ### Directory busting
 
@@ -49,9 +79,15 @@
 
 - browsh → open the browser in the command line
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f47dde30-36bf-4128-a5a2-df9580b08968/48ebad61-d33a-4908-83d9-1422799200d2/Untitled.png)
+```jsx
+browsh --startup-url <ip-address>
+```
 
 - lynx
+  
+```jsx
+lynx https://domainname.com
+```
 
 ## Ms-SQL(Microsoft based SQL) enumeration
 
@@ -258,3 +294,4 @@
     ```jsx
     cadaver http://10.5.19.162/webdav/
     ```
+    ---
